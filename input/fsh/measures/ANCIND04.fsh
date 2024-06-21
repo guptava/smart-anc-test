@@ -1,8 +1,3 @@
-Alias: $measure-scoring = http://terminology.hl7.org/CodeSystem/measure-scoring
-Alias: $measure-population = http://terminology.hl7.org/CodeSystem/measure-population
-Alias: $measure-type = http://terminology.hl7.org/CodeSystem/measure-type
-Alias: $measure-improvement-notation = http://terminology.hl7.org/CodeSystem/measure-improvement-notation
-
 Instance: ANCIND04
 InstanceOf: http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm
 Usage: #example

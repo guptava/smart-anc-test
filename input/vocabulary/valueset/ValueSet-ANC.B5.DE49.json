@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "ANC_B5_DE49",
+  "id": "ANC.B5.DE49",
+  "title": "ANC.B5.DE49 ValueSet for Danger signs",
+  "description": "ValueSet for ANC.B5.DE49",
+  "url": "http://smart.who.int/anc-test/ValueSet/ANC.B5.DE49",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "concept": [
+          {
+            "code": "ANC.B5.DE49",
+            "display": "No danger signs"
+          }
+        ]
+      }
+    ]
+  }
+}

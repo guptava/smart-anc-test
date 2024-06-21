@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "ReasonforclosingANCrecord",
+  "id": "ANC.End.1",
+  "title": "Reason for closing ANC record",
+  "description": "Codes representing possible values for the Reason for closing ANC record element",
+  "url": "http://smart.who.int/anc-test/ValueSet/ANC.End.1",
+  "experimental": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "concept": [
+          {
+            "code": "ANC.End.1",
+            "display": "Reason for closing ANC record"
+          }
+        ]
+      }
+    ]
+  }
+}

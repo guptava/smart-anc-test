@@ -1,0 +1,109 @@
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+No data found at /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests. Evaluation may fail if data is required.
+No terminology found at /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset. Evaluation may fail if terminology is required.
+Patient=null
+Danger Signs Observation=[]
+Should Proceed with ANC contact OR Referral=false
+Should Proceed with ANC contact OR Referral for Central cyanosis=false
+Should Proceed with ANC contact=false
+
+
+Evaluation logs:
+11:13:00.455 [pool-2-thread-1] INFO  ca.uhn.fhir.util.VersionUtil - HAPI FHIR version 6.0.1 - Rev 2a70df1a11
+11:13:00.463 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+11:13:00.499 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+11:13:01.171 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Patient. Returning empty set.
+11:13:01.172 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Observation. Returning empty set.
+elapsed: 0.808 seconds
+
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+No data found at /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests. Evaluation may fail if data is required.
+No terminology found at /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset. Evaluation may fail if terminology is required.
+Patient=null
+Danger Signs Observation=[]
+Should Proceed with ANC contact OR Referral=false
+Should Proceed with ANC contact OR Referral for Central cyanosis=false
+Should Proceed with ANC contact=false
+
+
+Evaluation logs:
+11:17:12.273 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+11:17:12.318 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Patient. Returning empty set.
+11:17:12.318 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Observation. Returning empty set.
+elapsed: 0.053 seconds
+
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+No data found at /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests. Evaluation may fail if data is required.
+Terminology path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset
+Patient=null
+Danger Signs Observation=[]
+Should Proceed with ANC contact OR Referral=false
+Should Proceed with ANC contact OR Referral for Central cyanosis=false
+Should Proceed with ANC contact=false
+
+
+Evaluation logs:
+11:20:34.041 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+11:20:34.211 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-resources.xml
+11:20:34.228 [pool-2-thread-1] INFO  ca.uhn.fhir.util.XmlUtil - Unable to determine StAX implementation: java.xml/META-INF/MANIFEST.MF not found
+11:20:34.693 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-types.xml
+11:20:34.727 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/profile/profiles-others.xml
+11:20:34.838 [pool-2-thread-1] INFO  c.u.f.c.support.DefaultProfileValidationSupport - Loading structure definitions from classpath: /org/hl7/fhir/r4/model/extension/extension-definitions.xml
+11:20:34.964 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Patient. Returning empty set.
+11:20:34.964 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Observation. Returning empty set.
+elapsed: 0.933 seconds
+
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+Data path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests/ANCDT01DangerSignsLogic
+Terminology path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset
+Patient=null
+Danger Signs Observation=[]
+Should Proceed with ANC contact OR Referral=false
+Should Proceed with ANC contact OR Referral for Central cyanosis=false
+Should Proceed with ANC contact=false
+
+
+Evaluation logs:
+11:22:52.745 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+11:22:52.797 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Patient. Returning empty set.
+11:22:52.797 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Observation. Returning empty set.
+elapsed: 0.058 seconds
+
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+Data path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests/ANCDT01DangerSignsLogic
+Terminology path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset
+Patient=null
+Danger Signs Observation=[]
+Should Proceed with ANC contact OR Referral=false
+Should Proceed with ANC contact OR Referral for Central cyanosis=false
+Should Proceed with ANC contact=false
+
+
+Evaluation logs:
+11:26:45.073 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+11:26:45.123 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Patient. Returning empty set.
+11:26:45.124 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Observation. Returning empty set.
+elapsed: 0.054 seconds
+
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+Data path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests/library/ANCDT01DangerSignsLogic
+Terminology path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset
+Patient=null
+Danger Signs Observation=[]
+Should Proceed with ANC contact OR Referral=false
+Should Proceed with ANC contact OR Referral for Central cyanosis=false
+Should Proceed with ANC contact=false
+
+
+Evaluation logs:
+11:29:18.104 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+11:29:18.141 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Patient. Returning empty set.
+11:29:18.141 [pool-2-thread-1] INFO  o.o.c.c.e.engine.retrieve.NoOpRetrieveProvider - Attempted retrieve of Observation. Returning empty set.
+elapsed: 0.041 seconds
+

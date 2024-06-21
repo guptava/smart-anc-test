@@ -1,0 +1,15 @@
+{
+  "resourceType": "Patient",
+  "id": "patient-with-danger-signs",
+  "name": [
+    {
+      "family": "Patient",
+      "given": [
+        "Test"
+      ],
+      "text": "Test Patient"
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2000-01-01"
+}

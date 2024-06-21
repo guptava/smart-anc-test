@@ -6,4 +6,4 @@ Description: "Codes representing possible values for the Reason for closing ANC 
 * ^experimental = false
 * ^name = "ReasonforclosingANCrecord"
 
-* ANC.End#1 "Reason for closing ANC record"
+* ANCCustomCodes#ANC.End.1 "Reason for closing ANC record"

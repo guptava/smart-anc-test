@@ -9,3 +9,5 @@ Alias: $library-type = http://terminology.hl7.org/CodeSystem/library-type
 Alias: $measure-scoring = http://terminology.hl7.org/CodeSystem/measure-scoring
 Alias: $measure-population = http://terminology.hl7.org/CodeSystem/measure-population
 Alias: $action-type = http://terminology.hl7.org/CodeSystem/action-type
+Alias: $measure-type = http://terminology.hl7.org/CodeSystem/measure-type
+Alias: $measure-improvement-notation = http://terminology.hl7.org/CodeSystem/measure-improvement-notation
