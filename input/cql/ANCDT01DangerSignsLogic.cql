@@ -7,16 +7,16 @@ include FHIRHelpers version '4.0.1'
 context Patient
 
 define "Danger Signs Observation":
-    [Observation] O
+    [Observation: ANCc."Danger Signs"] O
         where O.status in { 'final', 'amended', 'corrected' }
-        and (O.value as CodeableConcept) in ANCc."Danger Signs"
+        return O.value as FHIR.CodeableConcept
 
 define "Should Proceed with ANC contact OR Referral":
-    exists ("Danger Signs Observation")
+    "Danger Signs Observation" in ANCc."Danger Signs Choices"
 
 //"Danger signs" = "Central cyanosis"
 define "Should Proceed with ANC contact OR Referral for Central cyanosis":
-    "Danger Signs Observation".value in ANCc."Danger Signs - Central cynosis"
+    "Danger Signs Observation" in ANCc."Danger Signs - Central cynosis"
 
 define "Should Proceed with ANC contact":
-    "Danger Signs Observation".value in ANCc."Danger Signs - No Danger Signs"
+    "Danger Signs Observation" in ANCc."Danger Signs - No Danger Signs"

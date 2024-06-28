@@ -1,0 +1,31 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-with-central-cyanosis",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "ANC.B5.DE48",
+        "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "display": "Danger signs"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-with-central-cyanosis"
+  },
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "code": "ANC.B5.DE51",
+        "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "display": "Central cyanosis"
+      },
+      {
+        "code": "95837007",
+        "system": "http://snomed.info/sct",
+        "display": "Central cyanosis (disorder)"
+      }
+    ]
+  }
+}

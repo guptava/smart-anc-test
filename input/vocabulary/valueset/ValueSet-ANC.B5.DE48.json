@@ -13,56 +13,8 @@
         "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
         "concept": [
           {
-            "code": "ANC.B5.DE50",
-            "display": "Bleeding vaginally"
-          },
-          {
-            "code": "ANC.B5.DE51",
-            "display": "Central cyanosis"
-          },
-          {
-            "code": "ANC.B5.DE52",
-            "display": "Convulsing"
-          },
-          {
-            "code": "ANC.B5.DE53",
-            "display": "Fever"
-          },
-          {
-            "code": "ANC.B5.DE54",
-            "display": "Imminent delivery"
-          },
-          {
-            "code": "ANC.B5.DE55",
-            "display": "Labour"
-          },
-          {
-            "code": "ANC.B5.DE56",
-            "display": "Looks very ill"
-          },
-          {
-            "code": "ANC.B5.DE57",
-            "display": "Severe headache"
-          },
-          {
-            "code": "ANC.B5.DE58",
-            "display": "Severe pain"
-          },
-          {
-            "code": "ANC.B5.DE59",
-            "display": "Severe vomiting"
-          },
-          {
-            "code": "ANC.B5.DE60",
-            "display": "Severe abdominal pain"
-          },
-          {
-            "code": "ANC.B5.DE61",
-            "display": "Unconscious"
-          },
-          {
-            "code": "ANC.B5.DE62",
-            "display": "Visual disturbance"
+            "code": "ANC.B5.DE48",
+            "display": "Danger signs"
           }
         ]
       }

@@ -4,7 +4,7 @@ Title: "ANC.DT.01 Danger Signs"
 Description: "Before each contact, during the Quick Check, the health worker should check whether the woman has any of the danger signs listed here – if yes, she should be referred to the hospital urgently; if no, the normal contact should be continued as normal"
 Usage: #definition
 
-* library = "http://smart.who.int/immunizations-measles/Library/ANCDT01DangerSigns"
+* library = "http://smart.who.int/anc-test/Library/ANCDT01DangerSignsLogic"
 * extension[+]
   * url = "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability"
   * valueCode = #computable
@@ -34,13 +34,13 @@ Usage: #definition
       * description = "No danger signs observed"
       * language = #text/cql-identifier
       * expression = "Should Proceed with ANC contact"
-  * action[+]
-    * title = "Proceed with ANC contact OR Referral for Central cyanosis"
-    * description = "Proceed with ANC contact OR Referral for Central cyanosis"
-    * textEquivalent = "Bluish discolouration around the mucous membranes in the mouth, lips and tongue."
-    * condition
-      * kind = #applicability
-      * expression
-        * description = "Danger signs - Central cyanosis"
-        * language = #text/cql-identifier
-        * expression = "Should Proceed with ANC contact OR Referral for Central cyanosis"
+* action[+]
+  * title = "Proceed with ANC contact OR Referral for Central cyanosis"
+  * description = "Proceed with ANC contact OR Referral for Central cyanosis"
+  * textEquivalent = "Bluish discolouration around the mucous membranes in the mouth, lips and tongue."
+  * condition
+    * kind = #applicability
+    * expression
+      * description = "Danger signs - Central cyanosis"
+      * language = #text/cql-identifier
+      * expression = "Should Proceed with ANC contact OR Referral for Central cyanosis"

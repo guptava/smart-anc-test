@@ -1,0 +1,51 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter-patient-ghotala",
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "code": "424441002",
+          "system": "http://snomed.info/sct",
+          "display": "Prenatal initial visit (regime/therapy)"
+        }
+      ]
+    }
+  ],
+  "type": [
+    {
+      "coding": [
+        {
+          "code": "ANC.Contact",
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "display": "Antenatal care contact"
+        }
+      ],
+      "text": "Antenatal care contact"
+    }
+  ],
+  "status": "in-progress",
+  "period": {
+    "start": "2020-01-24"
+  },
+  "diagnosis": [
+    {
+      "condition": {
+        "reference": "Condition/patient-ghotala-pregnancy"
+      }
+    }
+  ],
+  "episodeOfCare": [
+    {
+      "reference": "EpisodeOfCare/patient-ghotala-pregnancy-episode"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-ghotala"
+  },
+  "class": {
+    "code": "AMB",
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "ambulatory"
+  }
+}

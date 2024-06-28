@@ -1,0 +1,3252 @@
+{
+  "resourceType": "Bundle",
+  "id": "ANC-resources",
+  "type": "transaction",
+  "entry": [ {
+    "resource": {
+      "resourceType": "Condition",
+      "id": "jane-smith-pregnancy",
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "77386006",
+          "display": "Pregnancy"
+        } ],
+        "text": "Pregnancy"
+      },
+      "subject": {
+        "reference": "Patient/jane-smith"
+      },
+      "onsetDateTime": "2019-05-25"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/jane-smith-pregnancy"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "patient-with-no-danger-signs",
+      "name": [ {
+        "text": "Test Patient",
+        "family": "Patient",
+        "given": [ "Test" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2000-01-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/patient-with-no-danger-signs"
+    }
+  }, {
+    "resource": {
+      "resourceType": "EpisodeOfCare",
+      "id": "patient-not-ip-pregnancy-episode",
+      "identifier": [ {
+        "system": "http://example.org/sampleepisodeofcare-identifier",
+        "value": "123"
+      } ],
+      "status": "active",
+      "type": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/episodeofcare-type",
+          "code": "hacc",
+          "display": "Home and Community Care"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/patient-not-ip-pregnancy"
+        },
+        "role": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "CC",
+            "display": "Chief complaint"
+          } ]
+        },
+        "rank": 1
+      } ],
+      "patient": {
+        "reference": "Patient/patient-not-ip"
+      },
+      "period": {
+        "start": "2020-05-22"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "EpisodeOfCare/patient-not-ip-pregnancy-episode"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "observation-with-central-cyanosis",
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.B5.DE48",
+          "display": "Danger signs"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/patient-with-central-cyanosis"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.B5.DE51",
+          "display": "Central cyanosis"
+        }, {
+          "system": "http://snomed.info/sct",
+          "code": "95837007",
+          "display": "Central cyanosis (disorder)"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/observation-with-central-cyanosis"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Library",
+      "id": "FHIRHelpers",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+        "valueCode": "computable"
+      } ],
+      "url": "http://smart.who.int/anc-test/Library/FHIRHelpers",
+      "version": "0.1.0",
+      "name": "FHIRHelpers",
+      "title": "FHIRHelpers",
+      "status": "draft",
+      "experimental": false,
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/library-type",
+          "code": "logic-library"
+        } ]
+      },
+      "publisher": "World Health Organization (WHO)",
+      "description": "This library defines functions to convert between FHIR data types and CQL system-defined types, as well as functions to support FHIRPath implementation. For more information, the FHIRHelpers wiki page: https://github.com/cqframework/clinical_quality_language/wiki/FHIRHelpers",
+      "content": [ {
+        "id": "ig-loader-FHIRHelpers.cql"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Library/FHIRHelpers"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "patient-not-ip",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/ichom-breast-cancer/StructureDefinition/EducationLevel",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "code": "224295006",
+            "display": "Only received primary school education (finding)"
+          } ]
+        }
+      } ],
+      "name": [ {
+        "text": "Patient Not IP",
+        "family": "Not IP",
+        "given": [ "Patient" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2004-07-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/patient-not-ip"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "jane-smith",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/ichom-breast-cancer/StructureDefinition/EducationLevel",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "code": "224295006",
+            "display": "Only received primary school education (finding)"
+          } ]
+        }
+      } ],
+      "name": [ {
+        "text": "Jane Smith",
+        "family": "Smith",
+        "given": [ "Jane" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1995-07-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/jane-smith"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Library",
+      "id": "FHIRCommon",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+        "valueCode": "computable"
+      } ],
+      "url": "http://smart.who.int/anc-test/Library/FHIRCommon",
+      "version": "0.1.0",
+      "name": "FHIRCommon",
+      "title": "FHIRCommon",
+      "status": "draft",
+      "experimental": false,
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/library-type",
+          "code": "logic-library"
+        } ]
+      },
+      "publisher": "World Health Organization (WHO)",
+      "description": "This library defines terminologies and functions commonly used in FHIR-based CQL artifacts",
+      "content": [ {
+        "id": "ig-loader-FHIRCommon.cql"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Library/FHIRCommon"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Library",
+      "id": "ANCDT01DangerSignsLogic",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+        "valueCode": "computable"
+      } ],
+      "url": "http://smart.who.int/anc-test/Library/ANCDT01DangerSignsLogic",
+      "version": "0.1.0",
+      "name": "ANCDT01DangerSignsLogic",
+      "title": "ANCDT01DangerSignsLogic",
+      "status": "draft",
+      "experimental": false,
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/library-type",
+          "code": "logic-library"
+        } ]
+      },
+      "publisher": "World Health Organization (WHO)",
+      "description": "This library defines decision support logic for the ANC.DT.01 Danger signs decision table",
+      "content": [ {
+        "id": "ig-loader-ANCDT01DangerSignsLogic.cql"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Library/ANCDT01DangerSignsLogic"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "jen-schiff",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/ichom-breast-cancer/StructureDefinition/EducationLevel",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "code": "224295006",
+            "display": "Only received primary school education (finding)"
+          } ]
+        }
+      } ],
+      "name": [ {
+        "text": "Jen Schiff",
+        "family": "Schiff",
+        "given": [ "Jen" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2005-07-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/jen-schiff"
+    }
+  }, {
+    "resource": {
+      "resourceType": "EpisodeOfCare",
+      "id": "patient-ghotala-pregnancy-episode",
+      "identifier": [ {
+        "system": "http://example.org/sampleepisodeofcare-identifier",
+        "value": "123"
+      } ],
+      "status": "active",
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Case",
+          "display": "Antenatal care case"
+        }, {
+          "system": "http://terminology.hl7.org/CodeSystem/episodeofcare-type",
+          "code": "hacc",
+          "display": "Home and Community Care"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/patient-ghotala-pregnancy"
+        },
+        "role": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "CC",
+            "display": "Chief complaint"
+          } ]
+        },
+        "rank": 1
+      } ],
+      "patient": {
+        "reference": "Patient/patient-ghotala"
+      },
+      "period": {
+        "start": "2019-05-22"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "EpisodeOfCare/patient-ghotala-pregnancy-episode"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Library",
+      "id": "ANCIND04Logic",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+        "valueCode": "computable"
+      } ],
+      "url": "http://smart.who.int/anc-test/Library/ANCIND04Logic",
+      "version": "0.1.0",
+      "name": "ANCIND04Logic",
+      "title": "ANCIND04",
+      "status": "draft",
+      "experimental": false,
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/library-type",
+          "code": "logic-library"
+        } ]
+      },
+      "publisher": "World Health Organization (WHO)",
+      "description": "This library defines population criteria for the IND.04 indicator in the ANC CPG",
+      "content": [ {
+        "id": "ig-loader-ANCIND04Logic.cql"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Library/ANCIND04Logic"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ImplementationGuide",
+      "id": "smart.who.int.anc-test",
+      "url": "http://smart.who.int/anc-test/ImplementationGuide/smart.who.int.anc-test",
+      "version": "0.1.0",
+      "name": "SMARTANCTEST",
+      "title": "WHO SMART Guideline - ANC Test",
+      "status": "draft",
+      "publisher": "WHO",
+      "contact": [ {
+        "name": "WHO",
+        "telecom": [ {
+          "system": "url",
+          "value": "http://who.int"
+        } ]
+      } ],
+      "description": "WHO SMART Guideline - ANC Test for testing L3 Documentation",
+      "jurisdiction": [ {
+        "coding": [ {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        } ]
+      } ],
+      "packageId": "smart.who.int.anc-test",
+      "license": "CC-BY-NC-SA-3.0",
+      "fhirVersion": [ "4.0.1" ],
+      "dependsOn": [ {
+        "id": "who_base",
+        "uri": "http://smart.who.int/base/ImplementationGuide/who.base",
+        "packageId": "who.base",
+        "version": "current"
+      }, {
+        "id": "hl7_fhir_uv_sdc",
+        "uri": "http://hl7.org/fhir/uv/sdc/ImplementationGuide/hl7.fhir.uv.sdc",
+        "packageId": "hl7.fhir.uv.sdc",
+        "version": "3.0.0"
+      }, {
+        "id": "hl7_fhir_uv_cpg",
+        "uri": "http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg",
+        "packageId": "hl7.fhir.uv.cpg",
+        "version": "current"
+      }, {
+        "id": "hl7_fhir_us_cqfmeasures",
+        "uri": "http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures",
+        "packageId": "hl7.fhir.us.cqfmeasures",
+        "version": "current"
+      }, {
+        "id": "hl7_fhir_uv_crmi",
+        "uri": "http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi",
+        "packageId": "hl7.fhir.uv.crmi",
+        "version": "current"
+      } ],
+      "definition": {
+        "resource": [ {
+          "reference": {
+            "reference": "CodeSystem/ANC.Care.Codes"
+          },
+          "name": "ANC Care CodeSystem for Data Elements",
+          "description": "CodeSystem for ANC Care Data Elements",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.B5.DE48"
+          },
+          "name": "ANC.B5.DE48 ValueSet for Danger signs",
+          "description": "ValueSet for ANC.B5.DE48",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.B5.DE49"
+          },
+          "name": "ANC.B5.DE49 ValueSet for Danger signs",
+          "description": "ValueSet for ANC.B5.DE49",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.B5.DE50"
+          },
+          "name": "ANC.B5.DE50 ValueSet for Danger signs",
+          "description": "ValueSet for ANC.B5.DE50",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.B5.DE51"
+          },
+          "name": "ANC.B5.DE51 ValueSet for Danger signs",
+          "description": "ValueSet for ANC.B5.DE51",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.Care.Case"
+          },
+          "name": "ANC.Care.Case ValueSet",
+          "description": "ValueSet for ANC.Care.Case",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.Care.Contact"
+          },
+          "name": "ANC.Care.Contact ValueSet",
+          "description": "ValueSet for ANC.Care.Contact",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "PlanDefinition/ANCDT01DangerSigns"
+          },
+          "name": "ANC.DT.01 Danger Signs",
+          "description": "Before each contact, during the Quick Check, the health worker should check whether the woman has any of the danger signs listed here – if yes, she should be referred to the hospital urgently; if no, the normal contact should be continued as normal",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Measure/ANCIND04"
+          },
+          "name": "ANC.IND.04 Percentage of pregnant women with at least four ANC contacts",
+          "description": "Percentage of pregnant women with at least four ANC contacts",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Library/ANCCommon"
+          },
+          "name": "ANCCommon",
+          "description": "This library defines common terminologies and functions used throughout the ANC CPG",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Library/ANCConcepts"
+          },
+          "name": "ANCConcepts",
+          "description": "This library defines concepts used throughout the ANC CPG",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Library/ANCDT01DangerSignsLogic"
+          },
+          "name": "ANCDT01DangerSignsLogic",
+          "description": "This library defines decision support logic for the ANC.DT.01 Danger signs decision table",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Library/ANCIND04Logic"
+          },
+          "name": "ANCIND04",
+          "description": "This library defines population criteria for the IND.04 indicator in the ANC CPG",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ConceptMap/ANCConceptMap"
+          },
+          "name": "ConceptMap to and from ANC Custom Codes",
+          "description": "Mapping to and from ANC custom codes to other codesystems.",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Encounter/encounter-jane-smith-1"
+          },
+          "name": "encounter-jane-smith-1",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Encounter/encounter-jane-smith-2"
+          },
+          "name": "encounter-jane-smith-2",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Encounter/encounter-jane-smith-3"
+          },
+          "name": "encounter-jane-smith-3",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Encounter/encounter-jane-smith-4"
+          },
+          "name": "encounter-jane-smith-4",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Encounter/encounter-jen-schiff-1"
+          },
+          "name": "encounter-jen-schiff-1",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Encounter/encounter-patient-ghotala"
+          },
+          "name": "encounter-patient-ghotala",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "EpisodeOfCare/episode-jane-pregnancy"
+          },
+          "name": "episode-jane-pregnancy",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "EpisodeOfCare/episode-jen-pregnancy"
+          },
+          "name": "episode-jen-pregnancy",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "CodeSystem/ANCCustomCodes"
+          },
+          "name": "Extended Codes CodeSystem",
+          "description": "Set of codes representing all concepts used in the implementation guide",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Library/FHIRCommon"
+          },
+          "name": "FHIRCommon",
+          "description": "This library defines terminologies and functions commonly used in FHIR-based CQL artifacts",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Library/FHIRHelpers"
+          },
+          "name": "FHIRHelpers",
+          "description": "This library defines functions to convert between FHIR data types and CQL system-defined types, as well as functions to support FHIRPath implementation. For more information, the FHIRHelpers wiki page: https://github.com/cqframework/clinical_quality_language/wiki/FHIRHelpers",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "Patient/jane-smith"
+          },
+          "name": "jane-smith",
+          "description": "Patient Example - Numerator positive",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Observation/jane-smith-end"
+          },
+          "name": "jane-smith-end",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Condition/jane-smith-pregnancy"
+          },
+          "name": "jane-smith-pregnancy",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Patient/jen-schiff"
+          },
+          "name": "jen-schiff",
+          "description": "Patient Example - Young patient",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Observation/jen-schiff-end"
+          },
+          "name": "jen-schiff-end",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Condition/jen-schiff-pregnancy"
+          },
+          "name": "jen-schiff-pregnancy",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Observation/observation-with-central-cyanosis"
+          },
+          "name": "observation-with-central-cyanosis",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Observation/observation-with-danger-signs"
+          },
+          "name": "observation-with-danger-signs",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Observation/observation-with-no-danger-signs"
+          },
+          "name": "observation-with-no-danger-signs",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Patient/patient-ghotala"
+          },
+          "name": "patient-ghotala",
+          "description": "Patient Example - Pregnant",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Observation/patient-ghotala-end"
+          },
+          "name": "patient-ghotala-end",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Condition/patient-ghotala-pregnancy"
+          },
+          "name": "patient-ghotala-pregnancy",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "EpisodeOfCare/patient-ghotala-pregnancy-episode"
+          },
+          "name": "patient-ghotala-pregnancy-episode",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Patient/patient-not-ip"
+          },
+          "name": "patient-not-ip",
+          "description": "Patient Example - Pregnant",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Condition/patient-not-ip-pregnancy"
+          },
+          "name": "patient-not-ip-pregnancy",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "EpisodeOfCare/patient-not-ip-pregnancy-episode"
+          },
+          "name": "patient-not-ip-pregnancy-episode",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Patient/patient-with-central-cyanosis"
+          },
+          "name": "patient-with-central-cyanosis",
+          "description": "Patient Example - With Central Cyanosis",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Patient/patient-with-danger-signs"
+          },
+          "name": "patient-with-danger-signs",
+          "description": "Patient Example - With Danger Signs",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "Patient/patient-with-no-danger-signs"
+          },
+          "name": "patient-with-no-danger-signs",
+          "description": "Patient Example - With No Danger Signs",
+          "exampleBoolean": true
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.End.2"
+          },
+          "name": "Qualifying Reason for closing ANC record Choices",
+          "description": "Codes representing qualifying values for the Reason for closing ANC record Choices element (i.e. reportable record closing)",
+          "exampleBoolean": false
+        }, {
+          "reference": {
+            "reference": "ValueSet/ANC.End.1"
+          },
+          "name": "Reason for closing ANC record",
+          "description": "Codes representing possible values for the Reason for closing ANC record element",
+          "exampleBoolean": false
+        } ],
+        "page": {
+          "nameUrl": "toc.html",
+          "title": "Table of Contents",
+          "generation": "html",
+          "page": [ {
+            "nameUrl": "index.html",
+            "title": "Home",
+            "generation": "markdown",
+            "page": [ {
+              "nameUrl": "changes.html",
+              "title": "Changes",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "dependencies.html",
+              "title": "Dependencies",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "references.html",
+              "title": "References",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "adapting.html",
+              "title": "Adapting Guidelines for Country use",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "license.html",
+              "title": "License",
+              "generation": "markdown"
+            } ]
+          }, {
+            "nameUrl": "business-requirements.html",
+            "title": "Business Requirements",
+            "generation": "markdown",
+            "page": [ {
+              "nameUrl": "concepts.html",
+              "title": "Concepts",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "personas.html",
+              "title": "Generic Personas",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "scenarios.html",
+              "title": "User Scenarios",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "business-processes.html",
+              "title": "Business Processes",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "dictionary.html",
+              "title": "Data Dictionary",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "decision-logic.html",
+              "title": "Decision-support logic",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "indicators.html",
+              "title": "Indicator and Performance Metrics",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "functional-requirements.html",
+              "title": "Functional Requirements",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "non-functional-requirements.html",
+              "title": "Non-functional Requirements",
+              "generation": "markdown"
+            } ]
+          }, {
+            "nameUrl": "data-models-and-exchange.html",
+            "title": "Data Models and Exchange",
+            "generation": "markdown",
+            "page": [ {
+              "nameUrl": "system-actors.html",
+              "title": "System Actors",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "sequence-diagrams.html",
+              "title": "Sequence Diagrams",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "transactions.html",
+              "title": "Transactions",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "indicators-measures.html",
+              "title": "Indicators and Measures",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "codings.html",
+              "title": "Codings",
+              "generation": "markdown"
+            } ]
+          }, {
+            "nameUrl": "deployment.html",
+            "title": "Deployment",
+            "generation": "markdown",
+            "page": [ {
+              "nameUrl": "security-privacy.html",
+              "title": "Security and Privacy Considerations",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "testing.html",
+              "title": "Testing",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "test-data.html",
+              "title": "Test Data",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "reference-implementations.html",
+              "title": "Reference Implementations",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "trust_domain.html",
+              "title": "Trust Domains",
+              "generation": "markdown"
+            }, {
+              "nameUrl": "downloads.html",
+              "title": "Downloads",
+              "generation": "markdown"
+            } ]
+          }, {
+            "nameUrl": "indices.html",
+            "title": "Indices",
+            "generation": "markdown",
+            "page": [ {
+              "nameUrl": "artifacts.html",
+              "title": "Artifact Index",
+              "generation": "html"
+            }, {
+              "nameUrl": "maps.html",
+              "title": "Mappings",
+              "generation": "markdown"
+            } ]
+          } ]
+        },
+        "parameter": [ {
+          "code": "copyrightyear",
+          "value": "2023+"
+        }, {
+          "code": "releaselabel",
+          "value": "ci-build"
+        }, {
+          "code": "produce-jekyll-data",
+          "value": "true"
+        }, {
+          "code": "path-resource",
+          "value": "input/actors"
+        }, {
+          "code": "path-resource",
+          "value": "input/maps"
+        }, {
+          "code": "path-binary",
+          "value": "input/cql"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ImplementationGuide/smart.who.int.anc-test"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.B5.DE51",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.B5.DE51",
+      "name": "ANC_B5_DE51",
+      "title": "ANC.B5.DE51 ValueSet for Danger signs",
+      "status": "active",
+      "experimental": false,
+      "description": "ValueSet for ANC.B5.DE51",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "concept": [ {
+            "code": "ANC.B5.DE51",
+            "display": "Central cynosis"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.B5.DE51"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "observation-with-danger-signs",
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.B5.DE48",
+          "display": "Danger signs"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/patient-with-danger-signs"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.B5.DE50",
+          "display": "Bleeding vaginally"
+        }, {
+          "system": "http://snomed.info/sct",
+          "code": "289530006",
+          "display": "Bleeding from vagina (finding)"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/observation-with-danger-signs"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Condition",
+      "id": "patient-not-ip-pregnancy",
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "77386006",
+          "display": "Pregnancy"
+        } ],
+        "text": "Pregnancy"
+      },
+      "subject": {
+        "reference": "Patient/patient-not-ip"
+      },
+      "onsetDateTime": "2020-05-22"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/patient-not-ip-pregnancy"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.Care.Case",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.Care.Case",
+      "name": "ANC_Care_Case",
+      "title": "ANC.Care.Case ValueSet",
+      "status": "draft",
+      "experimental": false,
+      "description": "ValueSet for ANC.Care.Case",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "concept": [ {
+            "code": "ANC.Case",
+            "display": "Antenatal care case"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.Care.Case"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.End.1",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.End.1",
+      "name": "ReasonforclosingANCrecord",
+      "title": "Reason for closing ANC record",
+      "status": "draft",
+      "experimental": false,
+      "description": "Codes representing possible values for the Reason for closing ANC record element",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "concept": [ {
+            "code": "ANC.End.1",
+            "display": "Reason for closing ANC record"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.End.1"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "jen-schiff-end",
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.End.1",
+          "display": "Reason for closing ANC record"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/jen-schiff"
+      },
+      "encounter": {
+        "reference": "Encounter/encounter-jen-schiff-1"
+      },
+      "effectiveDateTime": "2020-03-16T08:00:00.000+00:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.End.2",
+          "display": "Live birth"
+        }, {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "Z37.0",
+          "display": "Single live birth"
+        }, {
+          "system": "http://id.who.int/icd/release/11/mms",
+          "code": "QA46.0",
+          "display": "Single live birth??Default applied"
+        }, {
+          "system": "http://snomed.info/sct",
+          "code": "281050002",
+          "display": "Livebirth (finding)"
+        }, {
+          "system": "http://loinc.org",
+          "code": "68499-3",
+          "display": "Date last live birth"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/jen-schiff-end"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "encounter-patient-ghotala",
+      "status": "in-progress",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Contact",
+          "display": "Antenatal care contact"
+        } ],
+        "text": "Antenatal care contact"
+      } ],
+      "subject": {
+        "reference": "Patient/patient-ghotala"
+      },
+      "episodeOfCare": [ {
+        "reference": "EpisodeOfCare/patient-ghotala-pregnancy-episode"
+      } ],
+      "period": {
+        "start": "2020-01-24"
+      },
+      "reasonCode": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "424441002",
+          "display": "Prenatal initial visit (regime/therapy)"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/patient-ghotala-pregnancy"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/encounter-patient-ghotala"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Condition",
+      "id": "patient-ghotala-pregnancy",
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "77386006",
+          "display": "Pregnancy"
+        } ],
+        "text": "Pregnancy"
+      },
+      "subject": {
+        "reference": "Patient/patient-ghotala"
+      },
+      "onsetDateTime": "2019-05-22"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/patient-ghotala-pregnancy"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "encounter-jane-smith-1",
+      "status": "in-progress",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Contact",
+          "display": "Antenatal care contact"
+        } ],
+        "text": "Antenatal care contact"
+      } ],
+      "subject": {
+        "reference": "Patient/jane-smith"
+      },
+      "episodeOfCare": [ {
+        "reference": "EpisodeOfCare/episode-jane-pregnancy"
+      } ],
+      "period": {
+        "start": "2020-01-24"
+      },
+      "reasonCode": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "424441002",
+          "display": "Prenatal initial visit (regime/therapy)"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/jane-smith-pregnancy"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/encounter-jane-smith-1"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "patient-with-central-cyanosis",
+      "name": [ {
+        "text": "Test Patient",
+        "family": "Patient",
+        "given": [ "Test" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2000-01-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/patient-with-central-cyanosis"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Library",
+      "id": "ANCCommon",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+        "valueCode": "computable"
+      } ],
+      "url": "http://smart.who.int/anc-test/Library/ANCCommon",
+      "version": "0.1.0",
+      "name": "ANCConmmon",
+      "title": "ANCCommon",
+      "status": "draft",
+      "experimental": false,
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/library-type",
+          "code": "logic-library"
+        } ]
+      },
+      "publisher": "World Health Organization (WHO)",
+      "description": "This library defines common terminologies and functions used throughout the ANC CPG",
+      "content": [ {
+        "id": "ig-loader-ANCCommon.cql"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Library/ANCCommon"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.B5.DE50",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.B5.DE50",
+      "name": "ANC_B5_DE50",
+      "title": "ANC.B5.DE50 ValueSet for Danger signs",
+      "status": "active",
+      "experimental": false,
+      "description": "ValueSet for ANC.B5.DE50",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "concept": [ {
+            "code": "ANC.B5.DE50",
+            "display": "Bleeding vaginally"
+          }, {
+            "code": "ANC.B5.DE52",
+            "display": "Convulsing"
+          }, {
+            "code": "ANC.B5.DE53",
+            "display": "Fever"
+          }, {
+            "code": "ANC.B5.DE54",
+            "display": "Imminent delivery"
+          }, {
+            "code": "ANC.B5.DE55",
+            "display": "Labour"
+          }, {
+            "code": "ANC.B5.DE56",
+            "display": "Looks very ill"
+          }, {
+            "code": "ANC.B5.DE57",
+            "display": "Severe headache"
+          }, {
+            "code": "ANC.B5.DE58",
+            "display": "Severe pain"
+          }, {
+            "code": "ANC.B5.DE59",
+            "display": "Severe vomiting"
+          }, {
+            "code": "ANC.B5.DE60",
+            "display": "Severe abdominal pain"
+          }, {
+            "code": "ANC.B5.DE61",
+            "display": "Unconscious"
+          }, {
+            "code": "ANC.B5.DE62",
+            "display": "Visual disturbance"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.B5.DE50"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Library",
+      "id": "ANCConcepts",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+        "valueCode": "computable"
+      } ],
+      "url": "http://smart.who.int/anc-test/Library/ANCConcepts",
+      "version": "0.1.0",
+      "name": "ANCConcepts",
+      "title": "ANCConcepts",
+      "status": "draft",
+      "experimental": false,
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/library-type",
+          "code": "logic-library"
+        } ]
+      },
+      "publisher": "World Health Organization (WHO)",
+      "description": "This library defines concepts used throughout the ANC CPG",
+      "content": [ {
+        "id": "ig-loader-ANCConcepts.cql"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Library/ANCConcepts"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "patient-ghotala",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/ichom-breast-cancer/StructureDefinition/EducationLevel",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "code": "224295006",
+            "display": "Only received primary school education (finding)"
+          } ]
+        }
+      } ],
+      "name": [ {
+        "text": "Patient Ghotala",
+        "family": "Ghotala",
+        "given": [ "Patient" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1994-07-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/patient-ghotala"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ConceptMap",
+      "id": "ANCConceptMap",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareableconceptmap" ]
+      },
+      "url": "http://smart.who.int/anc-test/ConceptMap/ANCConceptMap",
+      "version": "0.1.0",
+      "name": "ANC_ConceptMap",
+      "title": "ConceptMap to and from ANC Custom Codes",
+      "status": "draft",
+      "experimental": false,
+      "publisher": "World Health Organization (WHO)",
+      "description": "Mapping to and from ANC custom codes to other codesystems.",
+      "group": [ {
+        "source": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "target": "http://hl7.org/fhir/sid/icd-10",
+        "element": [ {
+          "code": "ANC.B5.DE50",
+          "target": [ {
+            "code": "O46.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE51",
+          "target": [ {
+            "code": "R23.0",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE52",
+          "target": [ {
+            "code": "R56.8",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE53",
+          "target": [ {
+            "code": "R50.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE54",
+          "target": [ {
+            "code": "O75.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE55",
+          "target": [ {
+            "code": "O75.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE56",
+          "target": [ {
+            "code": "R69",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE57",
+          "target": [ {
+            "code": "R51",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE58",
+          "target": [ {
+            "code": "R52.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE59",
+          "target": [ {
+            "code": "R11",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE60",
+          "target": [ {
+            "code": "R10.4",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE61",
+          "target": [ {
+            "code": "R40.2",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE62",
+          "target": [ {
+            "code": "H53.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.2",
+          "target": [ {
+            "code": "Z37.0",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.3",
+          "target": [ {
+            "code": "Z37.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.4",
+          "target": [ {
+            "code": "Z37.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.5",
+          "target": [ {
+            "code": "Z37.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.6",
+          "target": [ {
+            "code": "O95",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.9",
+          "target": [ {
+            "code": "F45.8",
+            "equivalence": "equivalent"
+          } ]
+        } ]
+      }, {
+        "source": "http://hl7.org/fhir/sid/icd-10",
+        "target": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "element": [ {
+          "code": "O46.9",
+          "target": [ {
+            "code": "ANC.B5.DE50",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R23.0",
+          "target": [ {
+            "code": "ANC.B5.DE51",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R56.8",
+          "target": [ {
+            "code": "ANC.B5.DE52",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R50.9",
+          "target": [ {
+            "code": "ANC.B5.DE53",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "O75.9",
+          "target": [ {
+            "code": "ANC.B5.DE54",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "O75.9",
+          "target": [ {
+            "code": "ANC.B5.DE55",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R69",
+          "target": [ {
+            "code": "ANC.B5.DE56",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R51",
+          "target": [ {
+            "code": "ANC.B5.DE57",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R52.9",
+          "target": [ {
+            "code": "ANC.B5.DE58",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R11",
+          "target": [ {
+            "code": "ANC.B5.DE59",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R10.4",
+          "target": [ {
+            "code": "ANC.B5.DE60",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "R40.2",
+          "target": [ {
+            "code": "ANC.B5.DE61",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "H53.9",
+          "target": [ {
+            "code": "ANC.B5.DE62",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "Z37.0",
+          "target": [ {
+            "code": "ANC.End.2",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "Z37.1",
+          "target": [ {
+            "code": "ANC.End.3",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "Z37.9",
+          "target": [ {
+            "code": "ANC.End.4",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "Z37.9",
+          "target": [ {
+            "code": "ANC.End.5",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "O95",
+          "target": [ {
+            "code": "ANC.End.6",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "F45.8",
+          "target": [ {
+            "code": "ANC.End.9",
+            "equivalence": "equivalent"
+          } ]
+        } ]
+      }, {
+        "source": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "target": "http://id.who.int/icd/release/11/mms",
+        "element": [ {
+          "code": "ANC.B5.DE50",
+          "target": [ {
+            "code": "JA41.Z",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE51",
+          "target": [ {
+            "code": "ME64.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE52",
+          "target": [ {
+            "code": "8A68.Z",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE53",
+          "target": [ {
+            "code": "MG26",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE54",
+          "target": [ {
+            "code": "JB0Z",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE55",
+          "target": [ {
+            "code": "JB0Z",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE56",
+          "target": [ {
+            "code": "MG48",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE57",
+          "target": [ {
+            "code": "MG31.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE58",
+          "target": [ {
+            "code": "MG3Z",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE59",
+          "target": [ {
+            "code": "MD90.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE60",
+          "target": [ {
+            "code": "MD81.4",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE61",
+          "target": [ {
+            "code": "MB20.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE62",
+          "target": [ {
+            "code": "MC1Y",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.2",
+          "target": [ {
+            "code": "QA46.0",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.3",
+          "target": [ {
+            "code": "QA46.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.4",
+          "target": [ {
+            "code": "QA46.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.5",
+          "target": [ {
+            "code": "QA46.1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.6",
+          "target": [ {
+            "code": "JB60",
+            "equivalence": "equivalent"
+          } ]
+        } ]
+      }, {
+        "source": "http://id.who.int/icd/release/11/mms",
+        "target": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "element": [ {
+          "code": "JA41.Z",
+          "target": [ {
+            "code": "ANC.B5.DE50",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ME64.1",
+          "target": [ {
+            "code": "ANC.B5.DE51",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "8A68.Z",
+          "target": [ {
+            "code": "ANC.B5.DE52",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MG26",
+          "target": [ {
+            "code": "ANC.B5.DE53",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "JB0Z",
+          "target": [ {
+            "code": "ANC.B5.DE54",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "JB0Z",
+          "target": [ {
+            "code": "ANC.B5.DE55",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MG48",
+          "target": [ {
+            "code": "ANC.B5.DE56",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MG31.1",
+          "target": [ {
+            "code": "ANC.B5.DE57",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MG3Z",
+          "target": [ {
+            "code": "ANC.B5.DE58",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MD90.1",
+          "target": [ {
+            "code": "ANC.B5.DE59",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MD81.4",
+          "target": [ {
+            "code": "ANC.B5.DE60",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MB20.1",
+          "target": [ {
+            "code": "ANC.B5.DE61",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "MC1Y",
+          "target": [ {
+            "code": "ANC.B5.DE62",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "QA46.0",
+          "target": [ {
+            "code": "ANC.End.2",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "QA46.1",
+          "target": [ {
+            "code": "ANC.End.3",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "QA46.1",
+          "target": [ {
+            "code": "ANC.End.4",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "QA46.1",
+          "target": [ {
+            "code": "ANC.End.5",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "JB60",
+          "target": [ {
+            "code": "ANC.End.6",
+            "equivalence": "equivalent"
+          } ]
+        } ]
+      }, {
+        "source": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "target": "http://loinc.org",
+        "element": [ {
+          "code": "ANC.B5.DE50",
+          "target": [ {
+            "code": "70360-3",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.B5.DE52",
+          "target": [ {
+            "code": "45662-4",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.B5.DE53",
+          "target": [ {
+            "code": "45701-0",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE54",
+          "target": [ {
+            "code": "42840-9",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.B5.DE55",
+          "target": [ {
+            "code": "73774-2",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.B5.DE56",
+          "target": [ {
+            "code": "70410-6",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.B5.DE57",
+          "target": [ {
+            "code": "45715-0",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE58",
+          "target": [ {
+            "code": "45721-8",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE59",
+          "target": [ {
+            "code": "45708-5",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE60",
+          "target": [ {
+            "code": "28538-7",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE62",
+          "target": [ {
+            "code": "65727-0",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.2",
+          "target": [ {
+            "code": "68499-3",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.3",
+          "target": [ {
+            "code": "75207-1",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.4",
+          "target": [ {
+            "code": "64710-7",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.End.5",
+          "target": [ {
+            "code": "64710-7",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.End.6",
+          "target": [ {
+            "code": "81954-0",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.End.7",
+          "target": [ {
+            "code": "45237-5",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.End.8",
+          "target": [ {
+            "code": "67695-7",
+            "equivalence": "relatedto"
+          } ]
+        } ]
+      }, {
+        "source": "http://loinc.org",
+        "target": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "element": [ {
+          "code": "70360-3",
+          "target": [ {
+            "code": "ANC.B5.DE50",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "45662-4",
+          "target": [ {
+            "code": "ANC.B5.DE52",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "45701-0",
+          "target": [ {
+            "code": "ANC.B5.DE53",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "42840-9",
+          "target": [ {
+            "code": "ANC.B5.DE54",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "73774-2",
+          "target": [ {
+            "code": "ANC.B5.DE55",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "70410-6",
+          "target": [ {
+            "code": "ANC.B5.DE56",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "45715-0",
+          "target": [ {
+            "code": "ANC.B5.DE57",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "45721-8",
+          "target": [ {
+            "code": "ANC.B5.DE58",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "45708-5",
+          "target": [ {
+            "code": "ANC.B5.DE59",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "28538-7",
+          "target": [ {
+            "code": "ANC.B5.DE60",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "65727-0",
+          "target": [ {
+            "code": "ANC.B5.DE62",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "68499-3",
+          "target": [ {
+            "code": "ANC.End.2",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "75207-1",
+          "target": [ {
+            "code": "ANC.End.3",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "64710-7",
+          "target": [ {
+            "code": "ANC.End.4",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "64710-7",
+          "target": [ {
+            "code": "ANC.End.5",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "81954-0",
+          "target": [ {
+            "code": "ANC.End.6",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "45237-5",
+          "target": [ {
+            "code": "ANC.End.7",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "67695-7",
+          "target": [ {
+            "code": "ANC.End.8",
+            "equivalence": "relatedto"
+          } ]
+        } ]
+      }, {
+        "source": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "target": "http://snomed.info/sct",
+        "element": [ {
+          "code": "ANC.B5.DE49",
+          "target": [ {
+            "code": "161915001",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "ANC.B5.DE50",
+          "target": [ {
+            "code": "289530006",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE51",
+          "target": [ {
+            "code": "95837007",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE52",
+          "target": [ {
+            "code": "91175000",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE53",
+          "target": [ {
+            "code": "386661006",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE54",
+          "target": [ {
+            "code": "409049004",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE55",
+          "target": [ {
+            "code": "249123005",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE56",
+          "target": [ {
+            "code": "39104002",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE57",
+          "target": [ {
+            "code": "25064002",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE58",
+          "target": [ {
+            "code": "22253000",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE59",
+          "target": [ {
+            "code": "422400008",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE60",
+          "target": [ {
+            "code": "21522001",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE61",
+          "target": [ {
+            "code": "418107008",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.B5.DE62",
+          "target": [ {
+            "code": "63102001",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.2",
+          "target": [ {
+            "code": "281050002",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.3",
+          "target": [ {
+            "code": "237364002",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.4",
+          "target": [ {
+            "code": "17369002",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.5",
+          "target": [ {
+            "code": "285409006",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.6",
+          "target": [ {
+            "code": "31868001",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.7",
+          "target": [ {
+            "code": "399307001",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.8",
+          "target": [ {
+            "code": "184081006",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.9",
+          "target": [ {
+            "code": "60001007",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "ANC.End.10",
+          "target": [ {
+            "code": "723510000",
+            "equivalence": "equivalent"
+          } ]
+        } ]
+      }, {
+        "source": "http://snomed.info/sct",
+        "target": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "element": [ {
+          "code": "161915001",
+          "target": [ {
+            "code": "ANC.B5.DE49",
+            "equivalence": "relatedto"
+          } ]
+        }, {
+          "code": "289530006",
+          "target": [ {
+            "code": "ANC.B5.DE50",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "95837007",
+          "target": [ {
+            "code": "ANC.B5.DE51",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "91175000",
+          "target": [ {
+            "code": "ANC.B5.DE52",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "386661006",
+          "target": [ {
+            "code": "ANC.B5.DE53",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "409049004",
+          "target": [ {
+            "code": "ANC.B5.DE54",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "249123005",
+          "target": [ {
+            "code": "ANC.B5.DE55",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "39104002",
+          "target": [ {
+            "code": "ANC.B5.DE56",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "25064002",
+          "target": [ {
+            "code": "ANC.B5.DE57",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "22253000",
+          "target": [ {
+            "code": "ANC.B5.DE58",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "422400008",
+          "target": [ {
+            "code": "ANC.B5.DE59",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "21522001",
+          "target": [ {
+            "code": "ANC.B5.DE60",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "418107008",
+          "target": [ {
+            "code": "ANC.B5.DE61",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "63102001",
+          "target": [ {
+            "code": "ANC.B5.DE62",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "281050002",
+          "target": [ {
+            "code": "ANC.End.2",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "237364002",
+          "target": [ {
+            "code": "ANC.End.3",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "17369002",
+          "target": [ {
+            "code": "ANC.End.4",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "285409006",
+          "target": [ {
+            "code": "ANC.End.5",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "31868001",
+          "target": [ {
+            "code": "ANC.End.6",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "399307001",
+          "target": [ {
+            "code": "ANC.End.7",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "184081006",
+          "target": [ {
+            "code": "ANC.End.8",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "60001007",
+          "target": [ {
+            "code": "ANC.End.9",
+            "equivalence": "equivalent"
+          } ]
+        }, {
+          "code": "723510000",
+          "target": [ {
+            "code": "ANC.End.10",
+            "equivalence": "equivalent"
+          } ]
+        } ]
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ConceptMap/ANCConceptMap"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.B5.DE49",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.B5.DE49",
+      "name": "ANC_B5_DE49",
+      "title": "ANC.B5.DE49 ValueSet for Danger signs",
+      "status": "active",
+      "experimental": false,
+      "description": "ValueSet for ANC.B5.DE49",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "concept": [ {
+            "code": "ANC.B5.DE49",
+            "display": "No danger signs"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.B5.DE49"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "encounter-jane-smith-2",
+      "status": "in-progress",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Contact",
+          "display": "Antenatal care contact"
+        } ],
+        "text": "Antenatal care contact"
+      } ],
+      "subject": {
+        "reference": "Patient/jane-smith"
+      },
+      "episodeOfCare": [ {
+        "reference": "EpisodeOfCare/episode-jane-pregnancy"
+      } ],
+      "period": {
+        "start": "2020-03-24"
+      },
+      "reasonCode": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "424441002",
+          "display": "Prenatal initial visit (regime/therapy)"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/jane-smith-pregnancy"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/encounter-jane-smith-2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "EpisodeOfCare",
+      "id": "episode-jen-pregnancy",
+      "identifier": [ {
+        "system": "http://example.org/sampleepisodeofcare-identifier",
+        "value": "123"
+      } ],
+      "status": "active",
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Case",
+          "display": "Antenatal care case"
+        }, {
+          "system": "http://terminology.hl7.org/CodeSystem/episodeofcare-type",
+          "code": "hacc",
+          "display": "Home and Community Care"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/jen-schiff-pregnancy"
+        },
+        "role": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "CC",
+            "display": "Chief complaint"
+          } ]
+        },
+        "rank": 1
+      } ],
+      "patient": {
+        "reference": "Patient/jen-schiff"
+      },
+      "period": {
+        "start": "2019-06-25"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "EpisodeOfCare/episode-jen-pregnancy"
+    }
+  }, {
+    "resource": {
+      "resourceType": "EpisodeOfCare",
+      "id": "episode-jane-pregnancy",
+      "identifier": [ {
+        "system": "http://example.org/sampleepisodeofcare-identifier",
+        "value": "123"
+      } ],
+      "status": "active",
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Case",
+          "display": "Antenatal care case"
+        }, {
+          "system": "http://terminology.hl7.org/CodeSystem/episodeofcare-type",
+          "code": "hacc",
+          "display": "Home and Community Care"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/jane-smith-pregnancy"
+        },
+        "role": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "CC",
+            "display": "Chief complaint"
+          } ]
+        },
+        "rank": 1
+      } ],
+      "patient": {
+        "reference": "Patient/jane-smith"
+      },
+      "period": {
+        "start": "2019-05-25"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "EpisodeOfCare/episode-jane-pregnancy"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "patient-ghotala-end",
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.End.1",
+          "display": "Reason for closing ANC record"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/patient-ghotala"
+      },
+      "encounter": {
+        "reference": "Encounter/encounter-patient-ghotala"
+      },
+      "effectiveDateTime": "2020-03-16T08:00:00.000+00:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.End.2",
+          "display": "Live birth"
+        }, {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "Z37.0",
+          "display": "Single live birth"
+        }, {
+          "system": "http://id.who.int/icd/release/11/mms",
+          "code": "QA46.0",
+          "display": "Single live birth??Default applied"
+        }, {
+          "system": "http://snomed.info/sct",
+          "code": "281050002",
+          "display": "Livebirth (finding)"
+        }, {
+          "system": "http://loinc.org",
+          "code": "68499-3",
+          "display": "Date last live birth"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/patient-ghotala-end"
+    }
+  }, {
+    "resource": {
+      "resourceType": "CodeSystem",
+      "id": "ANCCustomCodes",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablecodesystem" ]
+      },
+      "url": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+      "name": "ANCCustomCodes",
+      "title": "Extended Codes CodeSystem",
+      "status": "draft",
+      "experimental": false,
+      "description": "Set of codes representing all concepts used in the implementation guide",
+      "caseSensitive": true,
+      "content": "complete",
+      "count": 26,
+      "concept": [ {
+        "code": "ANC.B5.DE48",
+        "display": "Danger signs",
+        "definition": "Before each contact, the health worker should check whether the woman has any of the danger signs listed here – if yes, she should refer to the hospital urgently; if no, she should continue to the normal contact"
+      }, {
+        "code": "ANC.B5.DE49",
+        "display": "No danger signs",
+        "definition": "No danger signs are present"
+      }, {
+        "code": "ANC.B5.DE50",
+        "display": "Bleeding vaginally",
+        "definition": "Woman is bleeding vaginally"
+      }, {
+        "code": "ANC.B5.DE51",
+        "display": "Central cyanosis",
+        "definition": "Woman has a bluish discolouration of the skin"
+      }, {
+        "code": "ANC.B5.DE52",
+        "display": "Convulsing",
+        "definition": "Woman is convulsing"
+      }, {
+        "code": "ANC.B5.DE53",
+        "display": "Fever",
+        "definition": "Woman has a fever (body temperature greater than or equal to 37°C)"
+      }, {
+        "code": "ANC.B5.DE54",
+        "display": "Imminent delivery",
+        "definition": "Woman is about to give birth"
+      }, {
+        "code": "ANC.B5.DE55",
+        "display": "Labour",
+        "definition": "Woman is in labour"
+      }, {
+        "code": "ANC.B5.DE56",
+        "display": "Looks very ill",
+        "definition": "Woman looks very ill"
+      }, {
+        "code": "ANC.B5.DE57",
+        "display": "Severe headache",
+        "definition": "Woman has a severe headache"
+      }, {
+        "code": "ANC.B5.DE58",
+        "display": "Severe pain",
+        "definition": "Woman is in severe pain (not abdominal pain)"
+      }, {
+        "code": "ANC.B5.DE59",
+        "display": "Severe vomiting",
+        "definition": "Woman is vomiting severely"
+      }, {
+        "code": "ANC.B5.DE60",
+        "display": "Severe abdominal pain",
+        "definition": "Woman is in severe abdominal pain"
+      }, {
+        "code": "ANC.B5.DE61",
+        "display": "Unconscious",
+        "definition": "Woman is unconscious"
+      }, {
+        "code": "ANC.B5.DE62",
+        "display": "Visual disturbance",
+        "definition": "Woman is visually disturbed"
+      }, {
+        "code": "ANC.End.1",
+        "display": "Reason for closing ANC record",
+        "definition": "Select the reason why you are closing the woman's ANC record"
+      }, {
+        "code": "ANC.End.2",
+        "display": "Live birth",
+        "definition": "The woman had a live birth"
+      }, {
+        "code": "ANC.End.3",
+        "display": "Stillbirth",
+        "definition": "The woman had a stillbirth"
+      }, {
+        "code": "ANC.End.4",
+        "display": "Miscarriage",
+        "definition": "The woman had a miscarriage"
+      }, {
+        "code": "ANC.End.5",
+        "display": "Abortion",
+        "definition": "The woman had an abortion"
+      }, {
+        "code": "ANC.End.6",
+        "display": "Death",
+        "definition": "The woman died"
+      }, {
+        "code": "ANC.End.7",
+        "display": "Lost to follow-up",
+        "definition": "The woman was lost to follow-up"
+      }, {
+        "code": "ANC.End.8",
+        "display": "Moved away",
+        "definition": "The woman moved away to another jurisdiction, her birthing status is unknown"
+      }, {
+        "code": "ANC.End.9",
+        "display": "False pregnancy",
+        "definition": "There was a false pregnancy"
+      }, {
+        "code": "ANC.End.10",
+        "display": "Wrong entry",
+        "definition": "The record was entered erroneously"
+      }, {
+        "code": "ANC.End.11",
+        "display": "Other (specify)",
+        "definition": "Other reason not specified above"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "CodeSystem/ANCCustomCodes"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.End.2",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.End.2",
+      "name": "QualifyingReasonForClosingANCRecordChoices",
+      "title": "Qualifying Reason for closing ANC record Choices",
+      "status": "draft",
+      "experimental": false,
+      "description": "Codes representing qualifying values for the Reason for closing ANC record Choices element (i.e. reportable record closing)",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "concept": [ {
+            "code": "ANC.End.2",
+            "display": "Live birth"
+          }, {
+            "code": "ANC.End.3",
+            "display": "Stillbirth"
+          }, {
+            "code": "ANC.End.4",
+            "display": "Miscarriage"
+          }, {
+            "code": "ANC.End.5",
+            "display": "Abortion"
+          }, {
+            "code": "ANC.End.6",
+            "display": "Death"
+          }, {
+            "code": "ANC.End.7",
+            "display": "Lost to follow-up"
+          }, {
+            "code": "ANC.End.8",
+            "display": "Moved away"
+          }, {
+            "code": "ANC.End.9",
+            "display": "False pregnancy"
+          }, {
+            "code": "ANC.End.10",
+            "display": "Wrong entry"
+          }, {
+            "code": "ANC.End.11",
+            "display": "Other (specify)"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.End.2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.B5.DE48",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.B5.DE48",
+      "name": "ANC_B5_DE48",
+      "title": "ANC.B5.DE48 ValueSet for Danger signs",
+      "status": "active",
+      "experimental": false,
+      "description": "ValueSet for ANC.B5.DE48",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "concept": [ {
+            "code": "ANC.B5.DE48",
+            "display": "Danger signs"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.B5.DE48"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "encounter-jane-smith-3",
+      "status": "in-progress",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Contact",
+          "display": "Antenatal care contact"
+        } ],
+        "text": "Antenatal care contact"
+      } ],
+      "subject": {
+        "reference": "Patient/jane-smith"
+      },
+      "episodeOfCare": [ {
+        "reference": "EpisodeOfCare/episode-jane-pregnancy"
+      } ],
+      "period": {
+        "start": "2020-06-24"
+      },
+      "reasonCode": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "424441002",
+          "display": "Prenatal initial visit (regime/therapy)"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/jane-smith-pregnancy"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/encounter-jane-smith-3"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "encounter-jen-schiff-1",
+      "status": "in-progress",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Contact",
+          "display": "Antenatal care contact"
+        } ],
+        "text": "Antenatal care contact"
+      } ],
+      "subject": {
+        "reference": "Patient/jen-schiff"
+      },
+      "episodeOfCare": [ {
+        "reference": "EpisodeOfCare/episode-jen-pregnancy"
+      } ],
+      "period": {
+        "start": "2020-01-01"
+      },
+      "reasonCode": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "424441002",
+          "display": "Prenatal initial visit (regime/therapy)"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/jen-schiff-pregnancy"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/encounter-jen-schiff-1"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "jane-smith-end",
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.End.1",
+          "display": "Reason for closing ANC record"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/jane-smith"
+      },
+      "encounter": {
+        "reference": "Encounter/encounter-jane-smith-4"
+      },
+      "effectiveDateTime": "2021-03-16T08:00:00.000+00:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.End.2",
+          "display": "Live birth"
+        }, {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "Z37.0",
+          "display": "Single live birth"
+        }, {
+          "system": "http://id.who.int/icd/release/11/mms",
+          "code": "QA46.0",
+          "display": "Single live birth??Default applied"
+        }, {
+          "system": "http://snomed.info/sct",
+          "code": "281050002",
+          "display": "Livebirth (finding)"
+        }, {
+          "system": "http://loinc.org",
+          "code": "68499-3",
+          "display": "Date last live birth"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/jane-smith-end"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Measure",
+      "id": "ANCIND04",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm" ]
+      },
+      "url": "http://smart.who.int/anc-test/Measure/ANCIND04",
+      "name": "ANCIND04",
+      "title": "ANC.IND.04 Percentage of pregnant women with at least four ANC contacts",
+      "status": "draft",
+      "experimental": false,
+      "publisher": "World Health Organization (WHO)",
+      "description": "Percentage of pregnant women with at least four ANC contacts",
+      "library": [ "http://smart.who.int/anc-test/Library/ANCIND04Logic" ],
+      "scoring": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+          "code": "proportion",
+          "display": "Proportion"
+        } ]
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+          "code": "process"
+        } ]
+      } ],
+      "improvementNotation": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+          "code": "increase"
+        } ]
+      },
+      "group": [ {
+        "id": "ANCIND04",
+        "population": [ {
+          "id": "initial-population",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population"
+            } ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Initial Population"
+          }
+        }, {
+          "id": "denominator",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator"
+            } ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Denominator"
+          }
+        }, {
+          "id": "numerator",
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator"
+            } ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Numerator"
+          }
+        } ],
+        "stratifier": [ {
+          "id": "by-age",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Age Stratifier"
+          }
+        }, {
+          "id": "by-education-level",
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Education Level Stratifier"
+          }
+        } ]
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Measure/ANCIND04"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "encounter-jane-smith-4",
+      "status": "in-progress",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "code": "ANC.Contact",
+          "display": "Antenatal care contact"
+        } ],
+        "text": "Antenatal care contact"
+      } ],
+      "subject": {
+        "reference": "Patient/jane-smith"
+      },
+      "episodeOfCare": [ {
+        "reference": "EpisodeOfCare/episode-jane-pregnancy"
+      } ],
+      "period": {
+        "start": "2020-09-24"
+      },
+      "reasonCode": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "424441002",
+          "display": "Prenatal initial visit (regime/therapy)"
+        } ]
+      } ],
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/jane-smith-pregnancy"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/encounter-jane-smith-4"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "patient-with-danger-signs",
+      "name": [ {
+        "text": "Test Patient",
+        "family": "Patient",
+        "given": [ "Test" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2000-01-01"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/patient-with-danger-signs"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Condition",
+      "id": "jen-schiff-pregnancy",
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "77386006",
+          "display": "Pregnancy"
+        } ],
+        "text": "Pregnancy"
+      },
+      "subject": {
+        "reference": "Patient/jen-schiff"
+      },
+      "onsetDateTime": "2019-06-25"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/jen-schiff-pregnancy"
+    }
+  }, {
+    "resource": {
+      "resourceType": "CodeSystem",
+      "id": "ANC.Care.Codes",
+      "url": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+      "name": "ANC_Care_Codes",
+      "title": "ANC Care CodeSystem for Data Elements",
+      "status": "draft",
+      "experimental": false,
+      "description": "CodeSystem for ANC Care Data Elements",
+      "caseSensitive": true,
+      "content": "complete",
+      "count": 2,
+      "concept": [ {
+        "code": "ANC.Case",
+        "display": "Antenatal care case",
+        "definition": "An episode of antenatal care related to a single pregnancy"
+      }, {
+        "code": "ANC.Contact",
+        "display": "Antenatal care contact",
+        "definition": "An initial or planned contact occurring as part of antenatal care"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "CodeSystem/ANC.Care.Codes"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "ANC.Care.Contact",
+      "url": "http://smart.who.int/anc-test/ValueSet/ANC.Care.Contact",
+      "name": "ANC_Care_Contact",
+      "title": "ANC.Care.Contact ValueSet",
+      "status": "draft",
+      "experimental": false,
+      "description": "ValueSet for ANC.Care.Contact",
+      "compose": {
+        "include": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+          "concept": [ {
+            "code": "ANC.Contact",
+            "display": "Antenatal care contact"
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/ANC.Care.Contact"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "observation-with-no-danger-signs",
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.B5.DE48",
+          "display": "Danger signs"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/patient-with-no-danger-signs"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+          "code": "ANC.B5.DE49",
+          "display": "No danger signs"
+        }, {
+          "system": "http://snomed.info/sct",
+          "code": "161915001",
+          "display": "No general symptom (situation)"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/observation-with-no-danger-signs"
+    }
+  }, {
+    "resource": {
+      "resourceType": "PlanDefinition",
+      "id": "ANCDT01DangerSigns",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+        "valueCode": "computable"
+      } ],
+      "url": "http://smart.who.int/anc-test/PlanDefinition/ANCDT01DangerSigns",
+      "version": "0.1.0",
+      "name": "ANCDT01DangerSigns",
+      "title": "ANC.DT.01 Danger Signs",
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+          "code": "eca-rule"
+        } ]
+      },
+      "status": "draft",
+      "experimental": false,
+      "publisher": "World Health Organization (WHO)",
+      "description": "Before each contact, during the Quick Check, the health worker should check whether the woman has any of the danger signs listed here – if yes, she should be referred to the hospital urgently; if no, the normal contact should be continued as normal",
+      "library": [ "http://smart.who.int/anc-test/Library/ANCDT01DangerSignsLogic" ],
+      "action": [ {
+        "title": "Check for Danger Signs",
+        "description": "Danger Signs",
+        "textEquivalent": "This is a danger sign that indicates that the woman needs urgent management",
+        "condition": [ {
+          "kind": "applicability",
+          "expression": {
+            "description": "Danger Signs Observed",
+            "language": "text/cql-identifier",
+            "expression": "Should Proceed with ANC contact OR Referral"
+          }
+        } ]
+      }, {
+        "title": "Proceed with ANC contact",
+        "description": "Proceed with ANC contact",
+        "textEquivalent": "If no danger signs are present, the health worker can continue with the normal ANC contact",
+        "condition": [ {
+          "kind": "applicability",
+          "expression": {
+            "description": "No danger signs observed",
+            "language": "text/cql-identifier",
+            "expression": "Should Proceed with ANC contact"
+          }
+        } ]
+      }, {
+        "title": "Proceed with ANC contact OR Referral for Central cyanosis",
+        "description": "Proceed with ANC contact OR Referral for Central cyanosis",
+        "textEquivalent": "Bluish discolouration around the mucous membranes in the mouth, lips and tongue.",
+        "condition": [ {
+          "kind": "applicability",
+          "expression": {
+            "description": "Danger signs - Central cyanosis",
+            "language": "text/cql-identifier",
+            "expression": "Should Proceed with ANC contact OR Referral for Central cyanosis"
+          }
+        } ]
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "PlanDefinition/ANCDT01DangerSigns"
+    }
+  } ]
+}

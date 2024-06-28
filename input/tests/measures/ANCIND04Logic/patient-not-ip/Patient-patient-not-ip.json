@@ -1,0 +1,29 @@
+{
+  "resourceType": "Patient",
+  "id": "patient-not-ip",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/ichom-breast-cancer/StructureDefinition/EducationLevel",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "224295006",
+            "system": "http://snomed.info/sct",
+            "display": "Only received primary school education (finding)"
+          }
+        ]
+      }
+    }
+  ],
+  "name": [
+    {
+      "family": "Not IP",
+      "given": [
+        "Patient"
+      ],
+      "text": "Patient Not IP"
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2004-07-01"
+}

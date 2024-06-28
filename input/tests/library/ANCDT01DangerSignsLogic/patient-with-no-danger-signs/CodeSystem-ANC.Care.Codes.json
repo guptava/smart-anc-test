@@ -1,0 +1,25 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "ANC_Care_Codes",
+  "id": "ANC.Care.Codes",
+  "title": "ANC Care CodeSystem for Data Elements",
+  "description": "CodeSystem for ANC Care Data Elements",
+  "url": "http://smart.who.int/anc-test/CodeSystem/ANC.Care.Codes",
+  "concept": [
+    {
+      "code": "ANC.Case",
+      "display": "Antenatal care case",
+      "definition": "An episode of antenatal care related to a single pregnancy"
+    },
+    {
+      "code": "ANC.Contact",
+      "display": "Antenatal care contact",
+      "definition": "An initial or planned contact occurring as part of antenatal care"
+    }
+  ],
+  "experimental": false,
+  "caseSensitive": true,
+  "count": 2
+}

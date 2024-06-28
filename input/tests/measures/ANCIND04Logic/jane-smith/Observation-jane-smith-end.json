@@ -1,0 +1,50 @@
+{
+  "resourceType": "Observation",
+  "id": "jane-smith-end",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "ANC.End.1",
+        "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "display": "Reason for closing ANC record"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/jane-smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-jane-smith-4"
+  },
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "code": "ANC.End.2",
+        "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
+        "display": "Live birth"
+      },
+      {
+        "code": "Z37.0",
+        "system": "http://hl7.org/fhir/sid/icd-10",
+        "display": "Single live birth"
+      },
+      {
+        "code": "QA46.0",
+        "system": "http://id.who.int/icd/release/11/mms",
+        "display": "Single live birth??Default applied"
+      },
+      {
+        "code": "281050002",
+        "system": "http://snomed.info/sct",
+        "display": "Livebirth (finding)"
+      },
+      {
+        "code": "68499-3",
+        "system": "http://loinc.org",
+        "display": "Date last live birth"
+      }
+    ]
+  },
+  "effectiveDateTime": "2021-03-16T08:00:00.000+00:00"
+}

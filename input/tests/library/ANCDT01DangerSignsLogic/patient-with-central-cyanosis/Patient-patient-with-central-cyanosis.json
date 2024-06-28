@@ -1,0 +1,15 @@
+{
+  "resourceType": "Patient",
+  "id": "patient-with-central-cyanosis",
+  "name": [
+    {
+      "family": "Patient",
+      "given": [
+        "Test"
+      ],
+      "text": "Test Patient"
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2000-01-01"
+}

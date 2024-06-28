@@ -7,7 +7,7 @@ include ANCCommon called ANCCom
 include FHIRHelpers version '4.0.1'
 include FHIRCommon called FC
 
-parameter "Measurement Period" Interval<Date>
+parameter "Measurement Period" Interval<Date> default Interval [@2020-01-01, @2021-01-01)
 
 context Patient
 

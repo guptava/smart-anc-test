@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "observation-with-danger-signs",
+  "id": "observation-with-no-danger-signs",
   "status": "final",
   "code": {
     "coding": [
@@ -12,19 +12,19 @@
     ]
   },
   "subject": {
-    "reference": "Patient/patient-with-danger-signs"
+    "reference": "Patient/patient-with-no-danger-signs"
   },
   "valueCodeableConcept": {
     "coding": [
       {
-        "code": "ANC.B5.DE51",
+        "code": "ANC.B5.DE49",
         "system": "http://smart.who.int/anc-test/CodeSystem/ANCCustomCodes",
-        "display": "Central cyanosis"
+        "display": "No danger signs"
       },
       {
-        "code": "95837007",
+        "code": "161915001",
         "system": "http://snomed.info/sct",
-        "display": "Central cyanosis (disorder)"
+        "display": "No general symptom (situation)"
       }
     ]
   }
