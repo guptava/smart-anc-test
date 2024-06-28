@@ -38,4 +38,4 @@ define "Age Stratifier":
 define "Education Level Stratifier":
     Patient.extension E
     where E.url = 'http://hl7.org/fhir/uv/ichom-breast-cancer/StructureDefinition/EducationLevel'
-    return E.value as CodeableConcept
+    return E.value.coding[0].display.value

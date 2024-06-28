@@ -447,3 +447,99 @@ Evaluation logs:
 15:17:20.393 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.Care.Contact is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
 elapsed: 0.255 seconds
 
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+Data path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests/measures/ANCIND04Logic
+Terminology path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset
+Patient=Patient(id=jane-smith)
+Initial Population=true
+Numerator=true
+Denominator=false
+Age Stratifier=Age is >= 20 years.
+
+Patient=Patient(id=jen-schiff)
+Initial Population=true
+Numerator=false
+Denominator=true
+Age Stratifier=Age is between 10 to 14 years.
+
+Patient=Patient(id=patient-ghotala)
+Initial Population=true
+Numerator=false
+Denominator=true
+Age Stratifier=Age is >= 20 years.
+
+Patient=Patient(id=patient-not-ip)
+Initial Population=false
+Numerator=false
+Denominator=false
+Age Stratifier=Age is betweem 15 to 19 years.
+
+
+Evaluation logs:
+12:26:17.993 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE51 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.Care.Case is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.End.1 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE50 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE49 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.End.2 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE48 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:26:18.069 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.Care.Contact is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+elapsed: 0.189 seconds
+
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+Data path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests/measures/ANCIND04Logic
+Terminology path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset
+
+Evaluation logs:
+12:41:06.049 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+Translation of library ANCIND04Logic failed with the following message: Syntax error at Disaggregation
+elapsed: 0.085 seconds
+
+Executing CQL...
+CQL path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/cql
+Data path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/tests/measures/ANCIND04Logic
+Terminology path: /Users/vaibhavgupta/Documents/GitHub/smart-anc-test/input/vocabulary/valueset
+Patient=Patient(id=jane-smith)
+Initial Population=true
+Numerator=true
+Denominator=false
+Age Stratifier=Age is >= 20 years.
+Education Level Stratifier=[Only received primary school education (finding)]
+
+Patient=Patient(id=jen-schiff)
+Initial Population=true
+Numerator=false
+Denominator=true
+Age Stratifier=Age is between 10 to 14 years.
+Education Level Stratifier=[Only received primary school education (finding)]
+
+Patient=Patient(id=patient-ghotala)
+Initial Population=true
+Numerator=false
+Denominator=true
+Age Stratifier=Age is >= 20 years.
+Education Level Stratifier=[Only received primary school education (finding)]
+
+Patient=Patient(id=patient-not-ip)
+Initial Population=false
+Numerator=false
+Denominator=false
+Age Stratifier=Age is betweem 15 to 19 years.
+Education Level Stratifier=[Only received primary school education (finding)]
+
+
+Evaluation logs:
+12:41:39.229 [pool-2-thread-1] INFO  ca.uhn.fhir.context.FhirContext - Creating new FHIR context for FHIR version [R4]
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE51 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.Care.Case is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.End.1 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE50 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE49 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.End.2 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.B5.DE48 is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+12:41:39.310 [pool-2-thread-1] WARN  o.o.c.c.e.e.terminology.BundleTerminologyProvider - ValueSet http://smart.who.int/anc-test/ValueSet/ANC.Care.Contact is not expanded. Falling back to compose definition. This will potentially produce incorrect results. 
+elapsed: 0.203 seconds
+
